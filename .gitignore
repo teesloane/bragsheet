@@ -40,3 +40,4 @@
 !/tmp/.keep
 /log/*
 /tmp/*
+node_modules
