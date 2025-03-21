@@ -1,3 +1,5 @@
 web: env RUBY_DEBUG_OPEN=true bin/rails server
 js: bun run build --watch
-css: tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify --watch
+# TODO: get this working
+css: bun dev:css 
+# css: tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify --watch
