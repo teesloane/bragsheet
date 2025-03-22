@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @win %>
+
+<div>
+  <%= link_to "Edit this win", edit_win_path(@win) %> |
+  <%= link_to "Back to wins", wins_path %>
+
+  <%= button_to "Destroy this win", @win, method: :delete %>
+</div>

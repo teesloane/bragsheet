@@ -1,0 +1,47 @@
+<%= form_with(model: win) do |form| %>
+  <% if win.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(win.errors.count, "error") %> prohibited this win from being saved:</h2>
+
+      <ul>
+        <% win.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.textarea :description %>
+  </div>
+
+  <div>
+    <%= form.label :impact, style: "display: block" %>
+    <%= form.textarea :impact %>
+  </div>
+
+  <div>
+    <%= form.label :achievement_date, style: "display: block" %>
+    <%= form.date_field :achievement_date %>
+  </div>
+
+  <div>
+    <%= form.label :private_notes, style: "display: block" %>
+    <%= form.textarea :private_notes %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
