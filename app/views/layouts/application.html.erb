@@ -23,7 +23,10 @@
   </head>
 
   <body>
-<%= render "header" %>
-   <%= yield %>
+   <% if Current.user %>
+     <%= render "sidebar" %>
+   <% else %>
+     <%= yield %>
+   <% end %>
   </body>
 </html>
