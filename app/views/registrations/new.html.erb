@@ -17,6 +17,11 @@
         </div>
       <% end %>
 
+      <div
+            data-controller="password-validation"
+            data-action="submit->password-validation#validateBeforeSubmit">
+
+
       <%= form_with model: @user, url: registration_url, class: "space-y-4" do |form| %>
         <div class="form-control">
           <label class="label mb-1">
@@ -40,6 +45,7 @@
                                 autocomplete: "new-password",
                                 placeholder: "Enter your password",
                                 maxlength: 72,
+                                data: { password_validation_target: "password" },
                                 class: "!outline-none input input-bordered w-full" %>
         </div>
 
@@ -51,14 +57,19 @@
                                 required: true,
                                 autocomplete: "new-password",
                                 placeholder: "Confirm your password",
+                                data: { password_validation_target: "confirmation" },
                                 maxlength: 72,
                                 class: "!outline-none input input-bordered w-full" %>
-        </div>
 
+        </div>
         <div class="form-control mt-6">
-          <%= form.submit "Sign up", class: "btn btn-primary w-full" %>
+          <%= form.submit "Sign up", class: "btn btn-primary w-full",
+               data: { password_validation_target: "submitButton" }
+              %>
         </div>
       <% end %>
+
+          </div>
 
       <div class="divider">OR</div>
 
