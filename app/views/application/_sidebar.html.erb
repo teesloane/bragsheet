@@ -137,6 +137,15 @@
             Profile & Settings
           </a>
         </li>
+
+        <li>
+        <div class="flex items-center py-2 mb1 hover:bg-base-300 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+          <%= button_to 'Logout', session_path, method: :delete, data: { turbo: false } %>
+        </div>
+        </li>
       </ul>
       <div class="p-4 mt-auto border-t border-base-300">
         <div class="flex items-center">

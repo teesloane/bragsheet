@@ -1,5 +1,6 @@
 class WinsController < ApplicationController
   before_action :set_win, only: %i[ show edit update destroy ]
+  before_action :require_authentication
 
   # GET /wins or /wins.json
   def index
