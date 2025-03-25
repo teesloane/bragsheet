@@ -1,13 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Wins" %>
-
-
 <h1>Wins</h1>
 
-<%= Current.user %>
-
-<%= render "sidebar" %>
 <div id="wins">
   <% @wins.each do |win| %>
     <%= render win %>
