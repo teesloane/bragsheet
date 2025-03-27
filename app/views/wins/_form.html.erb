@@ -1,47 +1,49 @@
-<%= form_with(model: win) do |form| %>
+<%= form_with(model: win, class: "card bg-base-100 shadow-xl max-w-xl mx-auto border rounded-sm p-6 space-y-4") do |form| %>
   <% if win.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(win.errors.count, "error") %> prohibited this win from being saved:</h2>
-
-      <ul>
-        <% win.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div role="alert" class="alert alert-error">
+      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+      <div>
+        <h3 class="font-bold"><%= pluralize(win.errors.count, "error") %> prohibited this win from being saved:</h3>
+        <div class="text-xs">
+          <% win.errors.each do |error| %>
+            <div><%= error.full_message %></div>
+          <% end %>
+        </div>
+      </div>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="form-control w-full card">
+    <%= form.label :title, class: "label" %>
+    <%= form.text_field :title, class: "!outline-none input input-bordered w-full" %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.textarea :description %>
+  <div class="form-control w-full">
+    <%= form.label :description, class: "label" %>
+    <%= form.textarea :description, class: "!outline-none textarea textarea-bordered w-full" %>
   </div>
 
-  <div>
-    <%= form.label :impact, style: "display: block" %>
-    <%= form.textarea :impact %>
+  <div class="form-control w-full">
+    <%= form.label :impact, class: "label" %>
+    <%= form.textarea :impact, class: "!outline-none textarea textarea-bordered w-full" %>
   </div>
 
-  <div>
-    <%= form.label :achievement_date, style: "display: block" %>
-    <%= form.date_field :achievement_date %>
+  <div class="form-control w-full">
+    <%= form.label :achievement_date, class: "label" %>
+    <%= form.date_field :achievement_date, class: "!outline-none input input-bordered w-full" %>
   </div>
 
-  <div>
-    <%= form.label :private_notes, style: "display: block" %>
-    <%= form.textarea :private_notes %>
+  <div class="form-control w-full">
+    <%= form.label :private_notes, class: "label" %>
+    <%= form.textarea :private_notes, class: "!outline-none textarea textarea-bordered w-full" %>
   </div>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+  <div class="form-control w-full">
+    <%= form.label :user_id, class: "label" %>
+    <%= form.text_field :user_id, class: "!outline-none input input-bordered w-full" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-control mt-6">
+    <%= form.submit "Save Win", class: "btn btn-primary w-full" %>
   </div>
 <% end %>
