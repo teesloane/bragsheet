@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ["password", "confirmation",  "submitButton"]
 
   connect() {
-    console.log("hiE!D")
     this.validateOnInput()
   }
 

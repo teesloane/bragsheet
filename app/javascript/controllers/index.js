@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import PasswordValidationController from "./password_validation_controller"
 application.register("password-validation", PasswordValidationController)
+
+import ToggleContentController from "./toggle_content"
+application.register("toggle-content", ToggleContentController)

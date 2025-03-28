@@ -4,6 +4,7 @@ class WinsController < ApplicationController
 
   # GET /wins or /wins.json
   def index
+    @new_win = Win.new
     @wins = Current.user.wins
   end
 

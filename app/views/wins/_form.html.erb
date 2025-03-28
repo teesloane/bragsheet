@@ -1,4 +1,9 @@
-<%= form_with(model: win, class: "card bg-base-100 shadow-xl max-w-xl mx-auto border rounded-sm p-6 space-y-4") do |form| %>
+<%= form_with(model: win, 
+    data: { 
+      controller: "toggle-content",
+      "show-more-hidden-class": "hidden"
+    }, 
+    class: "card bg-base-100 shadow-md mb-24 mt-16 max-w-xl mx-auto border border-base-300 rounded-sm p-6 space-y-4") do |form| %>
   <% if win.errors.any? %>
     <div role="alert" class="alert alert-error">
       <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
@@ -10,40 +15,54 @@
           <% end %>
         </div>
       </div>
+    <% end %>
+
+  <div class="flex gap-x-2">
+    <div class="form-control w-full card">
+      <%= form.text_field :title, placeholder: "Name your win!", class: "!outline-none input input-bordered w-full" %>
     </div>
-  <% end %>
-
-  <div class="form-control w-full card">
-    <%= form.label :title, class: "label" %>
-    <%= form.text_field :title, class: "!outline-none input input-bordered w-full" %>
+    <div class="form-control ">
+      <%= form.date_field :achievement_date, 
+      class: "!outline-none input input-bordered w-full", 
+      value: Date.today.to_s %>
+    </div>
   </div>
 
   <div class="form-control w-full">
-    <%= form.label :description, class: "label" %>
-    <%= form.textarea :description, class: "!outline-none textarea textarea-bordered w-full" %>
+    <%= form.textarea :description, placeholder: "Provide notes of what you accomplished and the impact of your work.\nExample: 'Completed project B and have seen an increase in sales by 7% in a week' ", class: "!outline-none textarea textarea-bordered w-full" %>
   </div>
 
-  <div class="form-control w-full">
-    <%= form.label :impact, class: "label" %>
-    <%= form.textarea :impact, class: "!outline-none textarea textarea-bordered w-full" %>
+  <div 
+    data-toggle-content-target="toggleContent" 
+    class="hidden space-y-4"
+  >
+    <div class="form-control w-full">
+      <%= form.label :impact, class: "label" %>
+      <%= form.textarea :impact, class: "!outline-none textarea textarea-bordered w-full" %>
+    </div>
+
+    <div class="w-full">
+      <%= form.label :private_notes, class: "label" %>
+      <%= form.textarea :private_notes, class: "!outline-none textarea textarea-bordered w-full" %>
+    </div>
   </div>
 
-  <div class="form-control w-full">
-    <%= form.label :achievement_date, class: "label" %>
-    <%= form.date_field :achievement_date, class: "!outline-none input input-bordered w-full" %>
-  </div>
+  <%= form.hidden_field :user_id, value: Current.user.id %>
 
-  <div class="form-control w-full">
-    <%= form.label :private_notes, class: "label" %>
-    <%= form.textarea :private_notes, class: "!outline-none textarea textarea-bordered w-full" %>
-  </div>
+<div class="join w-full">
 
-  <div class="form-control w-full">
-    <%= form.label :user_id, class: "label" %>
-    <%= form.text_field :user_id, class: "!outline-none input input-bordered w-full" %>
-  </div>
+    <button 
+      type="button"
+      data-toggle-content-target="toggleButton"
+      data-action="click->toggle-content#toggle"
+      data-toggle-content-on-param="Hide Details"
+      data-toggle-content-off-param="Add Details"
+      class="btn !m-0 join-item w-1/2"
+    >
+    Add Details
+    </button>
+    <%= form.submit "Save Win", class: "w-1/2 btn btn-primary join-item " %>
 
-  <div class="form-control mt-6">
-    <%= form.submit "Save Win", class: "btn btn-primary w-full" %>
-  </div>
+</div>
+
 <% end %>
