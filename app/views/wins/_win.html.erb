@@ -1,32 +1,8 @@
 <div id="<%= dom_id win %>">
-  <p>
-    <strong>Title:</strong>
-    <%= win.title %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= win.description %>
-  </p>
-
-  <p>
-    <strong>Impact:</strong>
-    <%= win.impact %>
-  </p>
-
-  <p>
-    <strong>Achievement date:</strong>
-    <%= win.achievement_date %>
-  </p>
-
-  <p>
-    <strong>Private notes:</strong>
-    <%= win.private_notes %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= win.user_id %>
-  </p>
-
+ <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+ <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"><%= win.achievement_date %></time>
+ <h3 class="text-lg font-semibold text-gray-900 dark:text-white"><%= win.title %></h3>
+ <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400"><%=win.description %></p>
+ <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400"><%=win.impact %></p>
+ <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400"><%=win.private_notes %></p>
 </div>

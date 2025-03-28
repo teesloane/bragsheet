@@ -16,6 +16,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :sessions, dependent: :destroy
+  has_many :wins
   has_one :user_profile, dependent: :destroy
   after_create :create_user_profile
 

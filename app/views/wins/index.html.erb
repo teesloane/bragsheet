@@ -1,14 +1,35 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Wins</h1>
+<h1 class="text-center text-2xl font-bold mb-6">Wins</h1>
 
-<div id="wins">
-  <% @wins.each do |win| %>
-    <%= render win %>
-    <p>
-      <%= link_to "Show this win", win %>
-    </p>
-  <% end %>
+<div id="wins" class="container mx-auto px-4 relative text-base-content">
+  <div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-base-300"></div>
+  
+  <ol class="relative">                  
+    <% @wins.each_with_index do |win, index| %>
+      <li class="mb-10 relative text-base-content">
+        <%= link_to win do %>
+          <div class="<%= index.even? ? 'lg:pe-8 text-end' : 'lg:ps-8' %> relative">
+            
+          <div class="absolute left-1/2 top-1/2 bottom-1/2 h-3 w-3 -mt-1.5 -ml-[5px] rounded-lg bg-base-300"></div>
+            
+            <div class=" max-w-md inline-block text-start card rounded-sm bg-base-300 p-2 px-4">
+              <time class="mb-1 text-sm font-normal leading-none"><%= win.achievement_date %></time>
+              <h3 class="text-lg font-semibold"><%= win.title %></h3>
+              
+              <% if win.description.present? %>
+                <p class="mb-4 text-base text-sm font-normal"><%= win.description %></p>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ol>
 </div>
 
-<%= link_to "New win", new_win_path %>
+<div class="text-center mt-6">
+  <%= link_to "New win", new_win_path, class: "btn btn-primary" %>
+</div>
+
+

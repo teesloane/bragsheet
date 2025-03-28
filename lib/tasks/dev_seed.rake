@@ -60,8 +60,8 @@ namespace :dev do
               "Outstanding Performance in #{Faker::Job.field}",
               "Breakthrough Initiative"
             ].sample,
-            description: Faker::Lorem.paragraph(sentence_count: 2),
-            impact: Faker::Lorem.paragraph(sentence_count: 3),
+            description: Faker::Lorem.paragraph(sentence_count: rand(1..8)),
+            impact: Faker::Lorem.paragraph(sentence_count: rand(1..3)),
             achievement_date: Faker::Date.between(from: 2.years.ago, to: Date.today),
             private_notes: Faker::Lorem.paragraph(sentence_count: 1)
           )
